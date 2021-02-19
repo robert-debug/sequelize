@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     recipeId: DataTypes.INTEGER
   }, {});
   Ingredient.associate = function(models) {
-    MeasurementUnit.belongsTo( model.MeasurementUnit, { foreignKey: 'MeasurementUnitId' })
-    Ingredient.belongsTo(model.recipe, { foreignKey: 'recipeId' })
+    Ingredient.belongsTo(models.MeasurementUnit, { foreignKey: 'MeasurementUnitId' })
+    Ingredient.belongsTo(models.recipe, { foreignKey: 'recipeId' })
   };
   return Ingredient;
 };
